@@ -1,7 +1,19 @@
 {
-  "name": "devportfolio",
-  "type": "module",
+  "name": "uxportfolio",
   "version": "0.0.1",
+  "description": "ux portfolio",
+  "homepage": "https://github.com/iqarchli/uxPortfolio#readme",
+  "bugs": {
+    "url": "https://github.com/iqarchli/uxPortfolio/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/iqarchli/uxPortfolio.git"
+  },
+  "license": "ISC",
+  "author": "",
+  "type": "module",
+  "main": "index.js",
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
@@ -12,5 +24,6 @@
     "@tailwindcss/vite": "^4.1.11",
     "astro": "^5.12.3",
     "tailwindcss": "^4.1.11"
-  }
+  },
+  "devDependencies": {}
 }
