@@ -1,0 +1,102 @@
+---
+import { siteConfig } from "../config";
+import "../styles/global.css";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+
+import MyDocument from 'public/UX_Qarchli_Resume.pdf'; // Your <Document> component
+
+
+
+---
+<section id="resume" class="p-8 sm:p-12 md:p-16 lg:p-24">
+    <div>
+        <div
+            class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-start"
+        >
+            <div class="lg:col-span-4">
+                <h2
+                    class="text-3xl sm:text-4xl md:text-5xl xl:text-7xl font-bold text-gray-900"
+                >
+                    Resume
+                </h2>
+                <div
+                    class="w-[75px] h-[5px] mt-2 rounded-full"
+                    style={`background-color: ${siteConfig.accentColor}`}
+                >
+                </div>
+            </div>
+
+            <div class="lg:col-span-8">
+                <div class="space-y-8">
+                    <div
+                        class="bg-white rounded-lg shadow-sm border border-gray-100 p-4 sm:p-5 md:p-6 hover:shadow-md transition-shadow duration-300"
+                    >
+                        <div
+                            class="flex flex-col sm:flex-row sm:items-start sm:justify-between mb-4"
+                        >
+                            <div>
+                                <h3
+                                    class="text-lg sm:text-xl font-semibold text-gray-900"
+                                >
+                                    Resume - {siteConfig.name}
+                                </h3>
+                                <section> Updated on
+                                    <span class="text-base sm:text-lg"
+                                    style={`color: ${siteConfig.accentColor}`}>
+                                        {siteConfig.lastUpdated}
+
+                                    </span>
+                                </section>
+                            </div>
+                            <span
+                                class="text-xs sm:text-sm text-gray-500 mt-2 sm:mt-0"
+                            >
+                                <a
+                                    href={siteConfig.resumeLink}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    class="px-4 py-2 inline-block bg-teal-500 hover:bg-teal-700 text-white"
+                                    style={`border-radius: 4px;`}
+                                >
+                                    View
+                                </a>
+                               <!-- <a
+                                    href={`https://drive.google.com/uc?export=download&id=${siteConfig.resumeID}`}
+                                    download="UX_Qarchli_Resume.pdf"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    class="px-4 py-2 inline-block bg-sky-500 hover:bg-sky-700 text-white"
+                                    style={`border-radius: 4px;`}
+                                >
+                                    Download
+                                </a>-->
+                                <a
+                                    href="/public/UX_Qarchli_Resume.pdf"
+                                    download="UX_Qarchli_Resume.pdf"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    class="px-4 py-2 inline-block bg-sky-500 hover:bg-sky-700 text-white"
+                                    style={`border-radius: 4px;`}
+                                >
+                                    Download
+                                </a>
+                            </span>
+                        </div>
+
+                        <!--<ul class="space-y-2">
+                    
+                      <li class="flex items-start">
+                        <span class="inline-block w-1.5 h-1.5 rounded-full bg-gray-400 mt-2 mr-3 flex-shrink-0" />
+                        <span class="text-sm sm:text-base text-gray-600">
+                          test
+                        </span>
+                      </li>
+                    
+                  </ul>-->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

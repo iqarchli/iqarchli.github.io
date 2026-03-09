@@ -56,9 +56,28 @@ const hasProjects = siteConfig.projects && siteConfig.projects.length > 0;
                             />
                           </svg>
                         </div>
+                      )}    
+                      <div class="flex gap-8 items-start">
+                      {/* video */}
+                        <div class=" w-[50%] max-w-[420px] h-full overflow-hidden rounded-lg">
+                        {project.video ? (
+                        <video
+                          src={project.video}
+                          autoplay
+                          loop
+                          muted
+                          playsinline
+                          class="w-full h-full object-contain"
+                        />
+                      ) : (
+                        <img
+                          src={project.image}
+                          alt={project.name}
+                          class="w-full h-full object-contain"
+                        />
                       )}
-
-                      <div class="space-y-4">
+                      </div>
+                       <div class="flex-1 space-y-4">
                         <div>
                           <span
                             class="text-sm font-mono"
@@ -91,6 +110,7 @@ const hasProjects = siteConfig.projects && siteConfig.projects.length > 0;
                           </div>
                         )}
                       </div>
+                      </Component>
                     </Component>
                   </div>
                 );

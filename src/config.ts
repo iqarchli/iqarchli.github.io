@@ -3,6 +3,9 @@ export const siteConfig = {
   title: "Senior UX Designer & web developer",
   description: "Portfolio website of Ismail Qarchli",
   accentColor: "#00BFA6",
+  resumeLink: "https://drive.google.com/file/d/1hNYgqSTT74ap0pL5hs-GFsbo3CWqESAr/preview",
+  resumeID: "1hNYgqSTT74ap0pL5hs-GFsbo3CWqESAr",
+  lastUpdated: "Mar 2026",
   social: {
     email: "ismail.qarchli@gmail.com",
     twitter: "",
@@ -17,21 +20,25 @@ export const siteConfig = {
       name: "Collaborating on 3D projects in the Cloud",
       description:
         "Cloud Collaboration enables seamless teamwork by allowing users to share 3D scenes with their teams and clients. With just a simple invitation, collaborators can review scenes and provide feedback. This streamlined process accelerates reviews, helping users complete their projects faster and more efficiently.",
-      link: "https://www.figma.com/proto/XdRURANHj1qw85wY8C6wqF/Qarchli-Portfolio?node-id=81-626&t=EiC7behFW6Zm5Dxp-0&scaling=contain&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=20%3A178&show-proto-sidebar=1",
+      link: "https://www.figma.com/proto/XdRURANHj1qw85wY8C6wqF/Qarchli-Portfolio?node-id=81-626&t=EiC7behFW6Zm5Dxp-0&scaling=contain&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=20%3A178&show-proto-sidebar=1&hide-ui=1",
       skills: ["Figma", "Web", "User Research"],
+      video: "https://static.chaos.com/hosted_videos/asset_mp4s/000/000/161/original/Chaos_Cloud_Collaboration_Short_Website_version_RC_01_July_2024_-_Small.mp4",
+      image:"https://static.chaos.com/images/assets/000/010/414/single_image_horizontal/Cloud_Rendering_1410x793.jpg",
     },
     {
       name: "VR User Interface Redesign",
+       image:"assets/enscapeVR.png  ",
       description:
         "The VR interface in Enscape needed to be redesigned to align with the new Design System and ensure a more modern visual presentation. The goal of this redesign was not to alter existing workflows or user flows, but to update UI elements such as component styling, font sizes, and layout consistency in accordance with the latest design standards.",
-      link: "https://www.figma.com/proto/XdRURANHj1qw85wY8C6wqF/Qarchli-Portfolio?node-id=367-15898&t=EiC7behFW6Zm5Dxp-0&scaling=contain&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=20%3A178",
+      link: "https://www.figma.com/proto/XdRURANHj1qw85wY8C6wqF/Qarchli-Portfolio?node-id=367-15898&t=EiC7behFW6Zm5Dxp-0&scaling=contain&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=20%3A178&hide-ui=1",
       skills: ["Desktop", "VR", "Figma"],
     },
     {
       name: "Highlighting Key Materials in 3D Renderings",
+      image:"assets/assets.png",
       description:
         "In a 3D scenario, when users are changing the rendering style mode to white, they don't only want to highlight the shape but also colors and materials of particular objects within a specific scenery. Therefore, users should be able to exclude certain materials from the White Mode to highlight their scenes to their wishes. After going through the initial and final concept phases, we decided to test the current UI with a few volunteers from our user group. The key findings from the user tests are outlined in this case study.",
-      link: "https://www.figma.com/proto/XdRURANHj1qw85wY8C6wqF/Qarchli-Portfolio?node-id=367-15898&t=EiC7behFW6Zm5Dxp-0&scaling=contain&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=20%3A178",
+      link: "https://www.figma.com/proto/XdRURANHj1qw85wY8C6wqF/Qarchli-Portfolio?node-id=20-109&t=OgKEKqPo8e2lrLMX-8&scaling=contain&content-scaling=fixed&page-id=0%3A1&hide-ui=1",
       skills: ["User Research", "Enscape", "Plugin"],
     },
   ],
