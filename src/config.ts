@@ -78,7 +78,7 @@ export const siteConfig = {
     {
       company: "NTT Data",
       location: "Tetouan, Morocco",
-      title: "UX Designer - Working Student",
+      title: "C# Software Developer",
       dateRange: "Jan 2016 - Feb 2018",
       bullets: [
         "Improved functionality and user experience across web and desktop applications, developed new modules in Agile sprints, and collaborated with Product Owners on task management and technical documentation.",
