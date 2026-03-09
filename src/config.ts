@@ -27,7 +27,7 @@ export const siteConfig = {
     },
     {
       name: "VR User Interface Redesign",
-       image:"assets/enscapeVR.png  ",
+       image:"/assets/enscapeVR.png  ",
       description:
         "The VR interface in Enscape needed to be redesigned to align with the new Design System and ensure a more modern visual presentation. The goal of this redesign was not to alter existing workflows or user flows, but to update UI elements such as component styling, font sizes, and layout consistency in accordance with the latest design standards.",
       link: "https://www.figma.com/proto/XdRURANHj1qw85wY8C6wqF/Qarchli-Portfolio?node-id=367-15898&t=EiC7behFW6Zm5Dxp-0&scaling=contain&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=20%3A178&hide-ui=1",
@@ -35,7 +35,8 @@ export const siteConfig = {
     },
     {
       name: "Highlighting Key Materials in 3D Renderings",
-      image:"assets/assets.png",
+      image:"/assets/assets.png",
+      url: "https://static.chaos.com/images/assets/000/024/817/single_image_horizontal/Enscape_3_3_VR_2.jpg?1744710570",
       description:
         "In a 3D scenario, when users are changing the rendering style mode to white, they don't only want to highlight the shape but also colors and materials of particular objects within a specific scenery. Therefore, users should be able to exclude certain materials from the White Mode to highlight their scenes to their wishes. After going through the initial and final concept phases, we decided to test the current UI with a few volunteers from our user group. The key findings from the user tests are outlined in this case study.",
       link: "https://www.figma.com/proto/XdRURANHj1qw85wY8C6wqF/Qarchli-Portfolio?node-id=20-109&t=OgKEKqPo8e2lrLMX-8&scaling=contain&content-scaling=fixed&page-id=0%3A1&hide-ui=1",
