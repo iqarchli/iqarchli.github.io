@@ -1,0 +1,21 @@
+---
+interface Props {
+  src: string;
+  alt: string;
+  caption?: string;
+}
+
+const { src, alt, caption } = Astro.props;
+---
+
+<figure class="space-y-3">
+  <a
+    href={src}
+    target="_blank"
+    rel="noopener noreferrer"
+    class="block overflow-hidden rounded-xl sm:rounded-2xl border border-gray-200 bg-gray-900 transition-all duration-300 hover:shadow-xl hover:border-gray-300"
+  >
+    <img src={src} alt={alt} loading="lazy" class="w-full h-auto" />
+  </a>
+  {caption && <figcaption class="text-sm text-gray-500 leading-relaxed">{caption}</figcaption>}
+</figure>

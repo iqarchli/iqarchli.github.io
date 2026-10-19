@@ -1,0 +1,37 @@
+---
+import { siteConfig } from "../config";
+
+interface Props {
+  id: string;
+  title: string;
+  label?: string;
+}
+
+const { id, title, label } = Astro.props;
+---
+
+<section id={id} class="px-8 sm:px-12 md:px-16 lg:px-24 py-12 sm:py-16 md:py-20">
+  <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-start">
+    <div class="lg:col-span-4 lg:sticky lg:top-24">
+      {
+        label && (
+          <span class="text-sm font-mono" style={{ color: siteConfig.accentColor }}>
+            {label}
+          </span>
+        )
+      }
+      <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mt-1">
+        {title}
+      </h2>
+      <div
+        class="w-[75px] h-[5px] mt-2 rounded-full"
+        style={`background-color: ${siteConfig.accentColor}`}
+      >
+      </div>
+    </div>
+
+    <div class="lg:col-span-8 space-y-8 text-base sm:text-lg text-gray-600 leading-relaxed">
+      <slot />
+    </div>
+  </div>
+</section>
