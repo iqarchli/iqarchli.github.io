@@ -17,6 +17,14 @@ export const siteConfig = {
   skills: ["Figma", "Adobe XD", "User Research", "HTML", "Javascript", "React", "Node.js"],
   projects: [
     {
+      name: "Comments in the Enscape iPad App",
+      description:
+        "The annotation panel lets users review 3D scenes on site and leave comments directly in the scene. Comments are pinned to the view they refer to, synced through Chaos Cloud, and keep working even when the connection drops.",
+      link: "/annotation-panel",
+      skills: ["Interaction design", "iPadOS", "Offline-first"],
+      image: "/case-studies/annotation-panel/overview.jpg",
+    },
+    {
       name: "Collaborating on 3D projects in the Cloud",
       description:
         "Cloud Collaboration enables seamless teamwork by allowing users to share 3D scenes with their teams and clients. With just a simple invitation, collaborators can review scenes and provide feedback. This streamlined process accelerates reviews, helping users complete their projects faster and more efficiently.",

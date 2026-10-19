@@ -1,0 +1,438 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import CaseStudySection from "../components/CaseStudySection.astro";
+import CaseStudyFigure from "../components/CaseStudyFigure.astro";
+import { siteConfig } from "../config";
+
+const img = (name: string) => `/case-studies/annotation-panel/${name}.jpg`;
+
+const tags = ["Interaction design", "iPadOS", "Offline-first", "Design system"];
+
+// TODO: add role, team and timeline once confirmed; the source PDF doesn't state them.
+const facts = [
+  { label: "Product", value: "Enscape iPad app" },
+  { label: "Feature", value: "Scene comments (V1)" },
+  { label: "Syncs with", value: "Chaos Cloud" },
+  { label: "Design system", value: "Eris" },
+];
+
+const principles = [
+  {
+    title: "Every gesture has a visible alternative",
+    body: "Users can place a comment with a tap, resolve it with a swipe and open its actions with a long-press. Each of these also has a visible button or menu, so users who don't know the gesture are never stuck.",
+  },
+  {
+    title: "One signal, one place",
+    body: "Whether a comment is read, resolved or selected is shown in a different part of the row. This way the states never get mixed up, and blue always means selected.",
+  },
+  {
+    title: "Users never lose what they wrote",
+    body: "Comments written offline are saved on the iPad right away. If a change can't be synced, the text is still there and can be copied, and nothing is greyed out in a way that looks like an error.",
+  },
+  {
+    title: "Clear, calm wording",
+    body: "Messages explain what happened in Chaos Cloud instead of blaming the user, and avoid words like “failed” or “error”. Each message gives the cause, the consequence and a way forward.",
+  },
+];
+
+const evolution = [
+  {
+    topic: "Resolving a comment",
+    from: "A check button on every row, then a long-press menu without the ⋯ button.",
+    to: "A full swipe to resolve, with a middle state and a 5-second Undo. The check button was removed and the ⋯ button came back on the row. The same swipe also reopens resolved comments.",
+  },
+  {
+    topic: "Pin colours",
+    from: "All pins in the accent blue, then resolved pins in grey with a green ring.",
+    to: "Open pins in grey, resolved pins in green with a check, and blue only for the selected pin, which also gets bigger and has a halo.",
+  },
+  {
+    topic: "Open and resolved comments",
+    from: "One list with a filter for both, where the pin chip showed the status.",
+    to: "Separate Open and Resolved tabs. The filter now only narrows the list by unread, mentions and author.",
+  },
+  {
+    topic: "Reading a thread",
+    from: "A popover next to the pin in the scene.",
+    to: "A reply mode inside the panel. The list is replaced by a single thread with a back link and one reply field.",
+  },
+  {
+    topic: "Search",
+    from: "Search inside the current tab, with a link to results in the other tab.",
+    to: "The tabs are hidden while searching, so users see one list with both open and resolved results.",
+  },
+  {
+    topic: "Offline comments",
+    from: "Queued comments shown at 60% opacity with a Pending label.",
+    to: "Queued comments at full opacity with an amber line and a short status, since the greyed-out rows looked like they had failed.",
+  },
+];
+---
+
+<BaseLayout
+  title={`Comments in the Enscape iPad App - ${siteConfig.name}`}
+  description="UX case study: spatial comments for reviewing Enscape scenes in the iPad app."
+>
+  <main class="pt-8 md:pt-20">
+    <!-- Intro -->
+    <section class="px-8 sm:px-12 md:px-16 lg:px-24 pt-8 pb-12 sm:pb-16">
+      <a
+        href="/#projects"
+        class="inline-flex items-center gap-2 text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors"
+      >
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+        </svg>
+        Back to projects
+      </a>
+
+      <div class="mt-8 max-w-4xl">
+        <span class="text-sm font-mono" style={{ color: siteConfig.accentColor }}>
+          Case study · Enscape iPad app
+        </span>
+        <h1 class="mt-2 text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-gray-900">
+          Comments in the Enscape iPad App
+        </h1>
+        <div
+          class="w-[75px] h-[5px] mt-3 rounded-full"
+          style={`background-color: ${siteConfig.accentColor}`}
+        >
+        </div>
+        <p class="mt-6 text-lg sm:text-xl text-gray-600 leading-relaxed">
+          The annotation panel lets users review 3D scenes on site and leave comments directly in the scene. Comments are
+          pinned to the view they refer to, synced through Chaos Cloud, and keep working even when the connection drops.
+        </p>
+        <div class="flex flex-wrap gap-1.5 sm:gap-2 pt-6">
+          {
+            tags.map((tag) => (
+              <span class="px-2.5 sm:px-3 py-1 sm:py-1.5 bg-gray-900 text-white rounded-md sm:rounded-lg text-xs sm:text-sm font-medium">
+                {tag}
+              </span>
+            ))
+          }
+        </div>
+      </div>
+
+      <dl class="mt-10 grid grid-cols-2 md:grid-cols-4 gap-4">
+        {
+          facts.map((fact) => (
+            <div class="p-4 sm:p-5 bg-gray-50 rounded-xl border border-gray-200">
+              <dt class="text-xs sm:text-sm text-gray-500">{fact.label}</dt>
+              <dd class="mt-1 text-sm sm:text-base font-semibold text-gray-900">{fact.value}</dd>
+            </div>
+          ))
+        }
+      </dl>
+
+      <div class="mt-10">
+        <CaseStudyFigure
+          src={img("overview")}
+          alt="Enscape on iPad with the comments panel open beside a rendered terrace scene, numbered pins placed in the 3D view"
+          caption="The comments panel in a scene. Each comment has a numbered pin, and tapping a row moves the camera to it."
+        />
+      </div>
+    </section>
+
+    <CaseStudySection id="overview" label="01" title="The problem">
+      <p>
+        Enscape scenes are reviewed by architects, their teams and their clients, often on site with a tablet. A comment
+        is only useful if it's clear what it refers to. That's why comments in Enscape are spatial: each one is a pin that
+        also saves the camera position, so anyone who opens it sees exactly the same view.
+      </p>
+      <p>
+        The desktop plugin already had a comments panel, but in its first version users couldn't create new comments
+        there. On the iPad they can, because the app has everything that placing a pin needs: a viewport and a tap. Our
+        goal was to design the iPad panel for viewing, writing, replying to and resolving comments, for users who are not
+        always technical and who might lose their connection in the middle of a sentence.
+      </p>
+      <div class="grid sm:grid-cols-3 gap-4">
+        {
+          [
+            { k: "Spatial", v: "Comments are placed in the 3D scene, not only listed in a panel." },
+            { k: "On site", v: "A weak or missing connection is a normal situation, not an exception." },
+            { k: "Different users", v: "Account holders, users without resolve rights, and guests without an account." },
+          ].map((item) => (
+            <div class="p-4 sm:p-5 bg-gray-50 rounded-xl border border-gray-200">
+              <p class="font-semibold text-gray-900">{item.k}</p>
+              <p class="mt-1 text-sm sm:text-base">{item.v}</p>
+            </div>
+          ))
+        }
+      </div>
+    </CaseStudySection>
+
+    <CaseStudySection id="principles" label="02" title="Principles">
+      <p>
+        Throughout the design process, a few principles guided our decisions and shaped most of the screens.
+      </p>
+      <div class="grid sm:grid-cols-2 gap-4">
+        {
+          principles.map((p, i) => (
+            <div class="p-4 sm:p-6 bg-gray-50 rounded-xl sm:rounded-2xl border border-gray-200">
+              <span class="text-sm font-mono" style={{ color: siteConfig.accentColor }}>
+                0{i + 1}
+              </span>
+              <h3 class="mt-1 text-lg sm:text-xl font-bold text-gray-900">{p.title}</h3>
+              <p class="mt-2 text-sm sm:text-base">{p.body}</p>
+            </div>
+          ))
+        }
+      </div>
+    </CaseStudySection>
+
+    <CaseStudySection id="browsing" label="03" title="Comments in the scene">
+      <p>
+        The panel is based on the existing Viewpoints panel in Enscape. It opens from the toolbar in the same way, has the
+        same width and search, and tapping a row moves the camera just like tapping a viewpoint. Because the two panels
+        work alike, users already know how to use it. On top of that, comments show the author, a status and a way to
+        create new comments.
+      </p>
+      <CaseStudyFigure
+        src={img("thread-popover")}
+        alt="A comment thread shown as a popover next to its pin in the scene, with replies and a reply field"
+        caption="An early version, where tapping a pin opens the thread next to it. A bottom sheet would have covered the part of the scene being discussed."
+      />
+      <h3 class="text-xl sm:text-2xl font-bold text-gray-900">Keeping the scene calm</h3>
+      <p>
+        When nothing is selected, open pins are grey and resolved pins are green with a check, so no pin stands out. When
+        a user taps a pin, it becomes the only blue element on the screen. Since colour alone isn't enough to highlight a
+        resolved pin, the selected pin also gets bigger and has a halo. All pins keep a 44px touch area and keep their size
+        when zooming.
+      </p>
+      <CaseStudyFigure
+        src={img("pins")}
+        alt="Three versions of the same scene: pins at rest, an open pin selected in blue, and a resolved pin selected in green"
+        caption="No pin selected, an open pin selected, and a resolved pin selected. A resolved pin stays green when selected."
+      />
+    </CaseStudySection>
+
+    <CaseStudySection id="creating" label="04" title="Adding a comment">
+      <p>
+        Adding a comment works as a separate mode. The toolbar turns into a short instruction with a Cancel button, the
+        viewport gets a coloured frame, and a crosshair follows the user's finger. A short note at the bottom explains
+        something users wouldn't expect: the pin saves the whole camera position, not just a point in the scene.
+      </p>
+      <CaseStudyFigure
+        src={img("place-pin")}
+        alt="Placement mode: a blue bar reads 'Tap where you'd like to comment' and a crosshair sits over the scene"
+        caption="Placement mode. The note at the bottom tells users that the pin saves the current camera view."
+      />
+      <p>
+        Later, we removed this extra step. When the comments panel is open, a single tap in the scene places a draft pin
+        and opens the comment field with the keyboard. Dragging still moves the camera, and tapping an existing pin still
+        opens its thread, so users don't place pins by accident while navigating.
+      </p>
+      <CaseStudyFigure
+        src={img("tap-to-place")}
+        alt="The scene locked while writing, with a draft pin and a New comment composer showing 'Pinned here · camera and v7 saved'"
+        caption="Tap to place. The comment field opens next to the pin, shows what was saved and lets users move the pin before posting."
+      />
+      <p>
+        However, a tap in the scene is not something users can see or discover on their own. That's why we kept an Add
+        comment button at the bottom of the panel. It starts the same placement step, so the button and the tap lead to
+        the same flow.
+      </p>
+    </CaseStudySection>
+
+    <CaseStudySection id="actions" label="05" title="Resolving and row actions">
+      <p>
+        Resolving is the action users repeat most often, so we made it a swipe. Swiping a row to the left first shows the
+        green Resolve action without applying it. The comment is only resolved when the user swipes all the way to the
+        edge of the panel, and an Undo message stays visible for 5 seconds afterwards. On a resolved comment, the same
+        swipe reopens it, shown in grey instead of green.
+      </p>
+      <CaseStudyFigure
+        src={img("swipe")}
+        alt="Swipe-to-resolve and swipe-to-reopen, each shown at the middle state, past the edge, and with an Undo toast"
+        caption="The same swipe resolves an open comment and reopens a resolved one."
+      />
+      <p>
+        We also considered placing both the Resolve and ⋯ buttons inside the swipe area to save space. We decided against
+        it: users would have to swipe before opening a menu, actions like Edit and Delete would be hidden behind a gesture,
+        and the swipe would need to travel further. Keeping the ⋯ button on the row only costs 24px.
+      </p>
+      <CaseStudyFigure
+        src={img("tray-before")}
+        alt="A comment row swiped open revealing two tray buttons: a green check and a grey ⋯"
+        caption="The option we didn't choose: two actions inside the swipe area."
+      />
+      <div class="grid sm:grid-cols-2 gap-6 items-start">
+        <CaseStudyFigure
+          src={img("row-actions")}
+          alt="A comment row at rest, with its ⋯ menu open, and swiped open with a single green resolve action; below, the menu items"
+          caption="The chosen option: the ⋯ button on the row, long-press as a shortcut, and a swipe that only resolves."
+        />
+        <div class="space-y-4">
+          <h3 class="text-xl sm:text-2xl font-bold text-gray-900">Hidden rather than disabled</h3>
+          <p>
+            Users can only edit and delete their own comments, and only users with editor rights in Chaos Cloud can resolve
+            them. Instead of showing these actions greyed out, we hide them when they're not available. For users without
+            resolve rights, the swipe doesn't react at all.
+          </p>
+        </div>
+      </div>
+    </CaseStudySection>
+
+    <CaseStudySection id="states" label="06" title="Every comment state">
+      <p>
+        A comment can be open or resolved, read or unread, and selected or not, in any combination. For example, a
+        comment can be created and resolved before a user has even seen it. To keep this readable, each of these states is
+        shown in its own part of the row:
+      </p>
+      <ul class="space-y-2 list-disc pl-5">
+        <li><strong class="text-gray-900">Read state</strong> is shown by a dot and the weight of the text.</li>
+        <li><strong class="text-gray-900">Status</strong> is shown by the pin colour and a “Resolved by …” line, so it doesn't rely on colour alone.</li>
+        <li><strong class="text-gray-900">Selection</strong> is shown by the row background and the blue pin.</li>
+      </ul>
+      <CaseStudyFigure
+        src={img("states")}
+        alt="A matrix of nine comment rows covering open, resolved and resolved-with-replies, each as unread, read and active, plus two rows showing sync states"
+        caption="All combinations of status, read state and selection, and the user's own comments while they sync."
+      />
+      <p>
+        A comment is marked as read when the user opens it, not when they scroll past it. The unread badge only counts open
+        comments, since those are the ones that need attention. Read comments use a slightly lighter grey instead of lower
+        opacity, because in the Eris design system lower opacity means disabled.
+      </p>
+    </CaseStudySection>
+
+    <CaseStudySection id="offline" label="07" title="Working offline">
+      <p>
+        When users lose their connection on site while writing, they should never have to wonder whether their comment was
+        lost. That's why we never use the word “draft”. The comment is saved on the iPad as soon as it's written, the Send
+        button works as usual, and the comment appears in the list right away with its pin number.
+      </p>
+      <CaseStudyFigure
+        src={img("offline")}
+        alt="The comments panel offline: two comments marked 'Waiting for connection' with amber rails and amber pins, and a footer reading 'Offline — 2 comments waiting'"
+        caption="Offline with two comments waiting. A single bar at the bottom of the panel shows the connection status, and each waiting comment gets an amber line and a short status."
+      />
+      <p>
+        We kept the colours simple: amber while waiting, blue while syncing, and no marker once it's done. When the
+        connection comes back, the amber elements turn blue in place, so users can follow the same comments instead of
+        seeing them disappear and reappear.
+      </p>
+      <CaseStudyFigure
+        src={img("sync-bar")}
+        alt="The footer bar in three states: Offline, Back online with a Sync now button, and Syncing"
+        caption="The status bar when the connection comes back. Syncing starts automatically after a few seconds, and Sync now starts it right away."
+      />
+      <p>
+        When the user needs to take action, for example because their session has expired, the panel keeps the same amber
+        style and only the text turns red. The bar always says that the comments are saved, so red never means they're
+        lost. If the app is closed, a local iOS notification informs the user instead. There is only one notification per
+        project, it's updated instead of repeated, and it's removed automatically once the comments are synced.
+      </p>
+      <CaseStudyFigure
+        src={img("notifications")}
+        alt="Three iPad lock-screen notifications: sign in to sync, comments still waiting to sync, and a comment that couldn't be synced"
+        caption="Notifications are only sent when the app is closed and the problem won't solve itself."
+      />
+    </CaseStudySection>
+
+    <CaseStudySection id="conversation" label="08" title="Finding and replying">
+      <p>
+        Open and resolved comments are shown in separate tabs, so the filter only needs to narrow the list down by unread
+        comments, mentions and author. Filters apply right away, each option shows how many comments it would leave, and
+        active filters appear as chips that can be removed one by one.
+      </p>
+      <CaseStudyFigure
+        src={img("filter")}
+        alt="Three panel states: no filters, the filter popover open with Unread only and a list of authors, and two filters applied as chips"
+        caption="No filters, the filter menu open, and two filters applied."
+      />
+      <p>
+        Search looks through comments, replies and author names. Each result is still one comment, since each comment has
+        one pin. If the match is in a reply, the reply is shown under its comment.
+      </p>
+      <CaseStudyFigure
+        src={img("search")}
+        alt="Five search states: matches in comments and replies, no match in this tab, no match anywhere, switching to Resolved, and search with filters"
+        caption="The first version of search, limited to the current tab with a link to results in the other tab."
+      />
+      <CaseStudyFigure
+        src={img("search-sheet")}
+        alt="Six states of a later search design: all comments, search focused, no match, filtered with no match, matches, and a result opened"
+        caption="The later version, where the tabs are hidden while searching and the pin colour shows whether each result is open or resolved."
+      />
+      <div class="grid sm:grid-cols-2 gap-6 items-start">
+        <CaseStudyFigure
+          src={img("reply-mode")}
+          alt="Reply mode: the panel shows one thread with a back link to Comments, the replies, and a composer at the bottom"
+          caption="In reply mode, the panel shows a single thread. The back link returns users to the same tab, filters and scroll position."
+        />
+        <div class="space-y-4">
+          <h3 class="text-xl sm:text-2xl font-bold text-gray-900">Conversation details</h3>
+          <ul class="space-y-3 list-disc pl-5">
+            <li>Users edit their replies in place with a long-press, and the reply field at the bottom is hidden meanwhile, so only one text field is on screen.</li>
+            <li>Typing @ only suggests people invited to the Cloud project, since only they can open the comment. The list opens above the reply field so the keyboard never covers it.</li>
+            <li>Guests without an account are asked for their name once, when they write their first comment, and the iPad remembers it.</li>
+            <li>Long names wrap onto a second line instead of being cut off, thanks to shorter timestamps such as 1m, 3h or 2d.</li>
+          </ul>
+        </div>
+      </div>
+      <CaseStudyFigure
+        src={img("mention")}
+        alt="iPad with the keyboard up and a people list above the reply field after typing @"
+        caption="Mentioning someone with the keyboard open. The panel moves above the keyboard and the list of people opens upwards."
+      />
+    </CaseStudySection>
+
+    <CaseStudySection id="evolution" label="09" title="How it evolved">
+      <p>
+        Many decisions changed along the way. These are the changes that had the biggest impact on the design.
+      </p>
+      <div class="space-y-4">
+        {
+          evolution.map((item) => (
+            <div class="p-4 sm:p-6 bg-gray-50 rounded-xl sm:rounded-2xl border border-gray-200">
+              <h3 class="text-lg sm:text-xl font-bold text-gray-900">{item.topic}</h3>
+              <div class="mt-3 grid sm:grid-cols-2 gap-4 text-sm sm:text-base">
+                <div>
+                  <p class="text-xs font-mono uppercase tracking-wide text-gray-400">Before</p>
+                  <p class="mt-1">{item.from}</p>
+                </div>
+                <div>
+                  <p class="text-xs font-mono uppercase tracking-wide" style={{ color: siteConfig.accentColor }}>
+                    After
+                  </p>
+                  <p class="mt-1 text-gray-700">{item.to}</p>
+                </div>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </CaseStudySection>
+
+    <CaseStudySection id="open-questions" label="10" title="Open questions">
+      <p>Some questions were left open, to be answered through testing or together with the developers:</p>
+      <ul class="space-y-3 list-disc pl-5">
+        <li>
+          <strong class="text-gray-900">Tap to place or button first?</strong> Placing a comment with a tap suits users who
+          comment a lot, while a button-first flow suits users who mostly review. Usage data should show which group is
+          bigger.
+        </li>
+        <li>
+          <strong class="text-gray-900">Comments on documents and videos.</strong> These comments have no camera position to
+          move to. It still needed to be confirmed with the developers whether the first version shows them on the iPad.
+        </li>
+        <li>
+          <strong class="text-gray-900">Earlier scene versions.</strong> Comments belong to the scene version they were
+          made on, and the first version of the app can't show earlier versions.
+        </li>
+      </ul>
+      <div class="pt-4">
+        <a
+          href="/#projects"
+          class="inline-flex items-center gap-2 px-4 py-2 bg-gray-900 hover:bg-gray-700 text-white rounded-lg text-sm font-medium transition-colors"
+        >
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+          </svg>
+          Back to projects
+        </a>
+      </div>
+    </CaseStudySection>
+  </main>
+</BaseLayout>
