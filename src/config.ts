@@ -17,18 +17,18 @@ export const siteConfig = {
   skills: ["Figma", "Adobe XD", "User Research", "HTML", "Javascript", "React", "Node.js"],
   projects: [
     {
-      name: "Comments in the Enscape iPad App",
+      name: "Comments in a 3D Renderer iPad App",
       description:
         "The annotation panel lets users review 3D scenes on site and leave comments directly in the scene. Comments are pinned to the view they refer to, synced through Chaos Cloud, and keep working even when the connection drops.",
       link: "/annotation-panel",
       skills: ["Interaction design", "iPadOS", "Offline-first"],
-      image: "/case-studies/annotation-panel/overview.jpg",
+      image: "/case-studies/annotation-panel/preview.gif",
     },
     {
       name: "Collaborating on 3D projects in the Cloud",
       description:
         "Cloud Collaboration enables seamless teamwork by allowing users to share 3D scenes with their teams and clients. With just a simple invitation, collaborators can review scenes and provide feedback. This streamlined process accelerates reviews, helping users complete their projects faster and more efficiently.",
-      link: "https://www.figma.com/proto/XdRURANHj1qw85wY8C6wqF/Qarchli-Portfolio?node-id=81-626&t=EiC7behFW6Zm5Dxp-0&scaling=contain&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=20%3A178&show-proto-sidebar=1&hide-ui=1",
+      link: "/cloud-collaboration",
       skills: ["Figma", "Web", "User Research"],
       video: "https://static.chaos.com/hosted_videos/asset_mp4s/000/000/161/original/Chaos_Cloud_Collaboration_Short_Website_version_RC_01_July_2024_-_Small.mp4",
       image:"https://static.chaos.com/images/assets/000/010/414/single_image_horizontal/Cloud_Rendering_1410x793.jpg",
@@ -38,7 +38,7 @@ export const siteConfig = {
        image:"https://snoopy.archdaily.com/images/archdaily/catalog/uploads/photo/image/140595/large_full_VR_Navigation.png",
       description:
         "The VR interface in Enscape needed to be redesigned to align with the new Design System and ensure a more modern visual presentation. The goal of this redesign was not to alter existing workflows or user flows, but to update UI elements such as component styling, font sizes, and layout consistency in accordance with the latest design standards.",
-      link: "https://www.figma.com/proto/XdRURANHj1qw85wY8C6wqF/Qarchli-Portfolio?node-id=367-15898&t=EiC7behFW6Zm5Dxp-0&scaling=contain&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=20%3A178&hide-ui=1",
+      link: "/vr-redesign",
       skills: ["Desktop", "VR", "Figma"],
     },
     {
@@ -46,7 +46,7 @@ export const siteConfig = {
       image:"https://documentation.chaos.com/download/attachments/127964922/asa2.png",
       description:
         "In a 3D scenario, when users are changing the rendering style mode to white, they don't only want to highlight the shape but also colors and materials of particular objects within a specific scenery. Therefore, users should be able to exclude certain materials from the White Mode to highlight their scenes to their wishes. After going through the initial and final concept phases, we decided to test the current UI with a few volunteers from our user group. The key findings from the user tests are outlined in this case study.",
-      link: "https://www.figma.com/proto/XdRURANHj1qw85wY8C6wqF/Qarchli-Portfolio?node-id=20-109&t=OgKEKqPo8e2lrLMX-8&scaling=contain&content-scaling=fixed&page-id=0%3A1&hide-ui=1",
+      link: "/highlight-materials",
       skills: ["User Research", "Enscape", "Plugin"],
     },
   ],

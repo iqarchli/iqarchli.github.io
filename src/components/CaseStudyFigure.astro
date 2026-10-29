@@ -3,12 +3,18 @@ interface Props {
   src: string;
   alt: string;
   caption?: string;
+  size?: "narrow" | "medium";
 }
 
-const { src, alt, caption } = Astro.props;
+const { src, alt, caption, size } = Astro.props;
+
+const sizeClass = {
+  narrow: "max-w-[200px] sm:max-w-[240px] mx-auto",
+  medium: "max-w-xl mx-auto",
+};
 ---
 
-<figure class="space-y-3">
+<figure class:list={["space-y-3", size && sizeClass[size]]}>
   <a
     href={src}
     target="_blank"

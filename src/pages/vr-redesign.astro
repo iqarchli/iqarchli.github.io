@@ -1,0 +1,227 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import CaseStudySection from "../components/CaseStudySection.astro";
+import CaseStudyFigure from "../components/CaseStudyFigure.astro";
+import { siteConfig } from "../config";
+
+const img = (name: string) => `/case-studies/vr-redesign/${name}.jpg`;
+
+const tags = ["VR", "Desktop", "Design system", "Figma"];
+
+const facts = [
+  { label: "Product", value: "Enscape VR mode" },
+  { label: "Platform", value: "VR headsets" },
+  { label: "Scope", value: "Visual redesign" },
+  { label: "Built in", value: "Unity" },
+];
+
+const steps = [
+  {
+    title: "Audit of the existing VR UI",
+    body: "I documented every component of the current VR interface, so that nothing would get lost in the redesign.",
+  },
+  {
+    title: "UI redesign",
+    body: "I redesigned the panels, buttons and controls with the components of the new design system.",
+  },
+  {
+    title: "Developer handoff",
+    body: "I worked with the developers on the adjustments needed for VR performance and technical constraints.",
+  },
+];
+
+const panels = [
+  {
+    name: "presentation",
+    title: "Presentation",
+    alt: "The Presentation panel with three saved views shown as large image cards, and the view count in the header",
+    caption: "Presentation: saved views as large image cards that are easy to point at.",
+  },
+  {
+    name: "camera",
+    title: "Virtual Camera",
+    alt: "The Virtual Camera panel with three options, Off, Screen Capture and Render Image, and a short explanation below",
+    caption: "Virtual Camera: each mode has its own explanation, so users know what the trigger will do.",
+  },
+  {
+    name: "settings",
+    title: "Settings",
+    alt: "The Settings panel with a White Mode toggle, a sun position slider from sunrise to midnight, and an outline slider",
+    caption: "Settings: the most used visual settings, with larger sliders for controllers.",
+  },
+  {
+    name: "minimap",
+    title: "Minimap",
+    alt: "The Minimap panel showing a top view of the site with the user's position",
+    caption: "Minimap: the site from above, inside the same panel frame.",
+  },
+];
+---
+
+<BaseLayout
+  title={`VR User Interface Redesign - ${siteConfig.name}`}
+  description="UX case study: redesigning the Enscape VR interface with the new design system."
+>
+  <main class="pt-8 md:pt-20">
+    <!-- Intro -->
+    <section class="px-8 sm:px-12 md:px-16 lg:px-24 pt-8 pb-12 sm:pb-16">
+      <a
+        href="/#projects"
+        class="inline-flex items-center gap-2 text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors"
+      >
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+        </svg>
+        Back to projects
+      </a>
+
+      <div class="mt-8">
+        <span class="text-sm font-mono" style={{ color: siteConfig.accentColor }}>
+          Case study · Enscape VR
+        </span>
+        <h1 class="mt-2 text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-gray-900">
+          VR User Interface Redesign
+        </h1>
+        <div
+          class="w-[75px] h-[5px] mt-3 rounded-full"
+          style={`background-color: ${siteConfig.accentColor}`}
+        >
+        </div>
+        <p class="mt-6 text-lg sm:text-xl text-gray-600 leading-relaxed">
+          The VR interface in Enscape needed to be redesigned to match the new design system and look more modern. The
+          redesign didn't change existing workflows. Instead, it updated the components, font sizes and layouts so that
+          the VR mode follows the same design standards as the rest of Enscape.
+        </p>
+        <div class="flex flex-wrap gap-1.5 sm:gap-2 pt-6">
+          {
+            tags.map((tag) => (
+              <span class="px-2.5 sm:px-3 py-1 sm:py-1.5 bg-gray-900 text-white rounded-md sm:rounded-lg text-xs sm:text-sm font-medium">
+                {tag}
+              </span>
+            ))
+          }
+        </div>
+      </div>
+
+      <dl class="mt-10 grid grid-cols-2 md:grid-cols-4 gap-4">
+        {
+          facts.map((fact) => (
+            <div class="p-4 sm:p-5 bg-gray-50 rounded-xl border border-gray-200">
+              <dt class="text-xs sm:text-sm text-gray-500">{fact.label}</dt>
+              <dd class="mt-1 text-sm sm:text-base font-semibold text-gray-900">{fact.value}</dd>
+            </div>
+          ))
+        }
+      </dl>
+
+      <div class="mt-10">
+        <CaseStudyFigure
+          src={img("navigation")}
+          alt="A living room in VR with the redesigned Navigation panel floating in front of the user, and a tab bar for Navigation, Presentation, Minimap, Camera and Settings"
+          caption="The redesigned VR interface. Each feature has its own panel, and a tab bar below switches between them."
+        />
+      </div>
+    </section>
+
+    <CaseStudySection id="problem" label="01" title="The problem">
+      <p>
+        Many Enscape users present their designs to clients in VR. The VR interface had been designed years earlier and
+        no longer matched the rest of the product. Its icons, colours and font sizes were different from the new design
+        system, and the main menu was a row of icons without labels.
+      </p>
+      <CaseStudyFigure
+        src={img("before")}
+        alt="The previous VR interface: a Presentation Mode panel with a yellow accent and a row of unlabelled icons below it"
+        caption="The VR interface before the redesign, with unlabelled icons in the main menu."
+      />
+      <p>
+        The goal was not to change how VR mode works. Users who present in VR rely on what they already know, often in
+        front of a client. So I kept the existing features and flows, and focused on the visual layer: components, type,
+        spacing and layout.
+      </p>
+    </CaseStudySection>
+
+    <CaseStudySection id="users" label="02" title="Who it's for">
+      <p>
+        The users are people who are familiar with VR headsets and often use Enscape's VR mode to present their designs
+        to clients. They use controllers instead of a mouse, so every target has to be large enough to point at, and text
+        has to stay readable at a distance.
+      </p>
+    </CaseStudySection>
+
+    <CaseStudySection id="process" label="03" title="How I approached it">
+      <div class="grid sm:grid-cols-3 gap-4">
+        {
+          steps.map((s, i) => (
+            <div class="p-4 sm:p-5 bg-gray-50 rounded-xl border border-gray-200">
+              <span class="text-sm font-mono" style={{ color: siteConfig.accentColor }}>
+                0{i + 1}
+              </span>
+              <p class="mt-1 font-semibold text-gray-900">{s.title}</p>
+              <p class="mt-1 text-sm sm:text-base">{s.body}</p>
+            </div>
+          ))
+        }
+      </div>
+      <p>
+        I checked the new panels directly in a Unity build as early as possible. A layout that looks fine on a monitor can
+        feel very different in a headset, where the panel floats in the room and the user points at it with a controller.
+      </p>
+      <CaseStudyFigure
+        src={img("prototype")}
+        alt="A test build in Unity with the new Presentation panel in VR and a controller pointing at it"
+        caption="Testing the new Presentation panel in a Unity build."
+      />
+    </CaseStudySection>
+
+    <CaseStudySection id="navigation" label="04" title="One frame for every panel">
+      <p>
+        The old menu was a row of icons, and users had to remember what each icon did. I replaced it with a tab bar where
+        every tab has an icon and a label. All features open in the same floating panel above it, with the same header,
+        spacing and controls, so users learn the layout once and find it again in every panel.
+      </p>
+      <p>
+        Options that change how users move, like Seated or Room Scale, are not obvious to everyone. Instead of long text in
+        the panel, a Help button opens a short explanation for each option.
+      </p>
+      <CaseStudyFigure
+        src={img("help")}
+        alt="The Help view of the Navigation panel, explaining Seated and Room Scale with an icon and a short text for each"
+        caption="The Help view of the Navigation panel: one card per option, with an icon and a short explanation."
+      />
+    </CaseStudySection>
+
+    <CaseStudySection id="panels" label="05" title="The panels">
+      <p>
+        I applied the same structure to the rest of VR mode. Every panel uses the components of the new design system,
+        with larger targets and text that stays readable in a headset.
+      </p>
+      <div class="grid sm:grid-cols-2 gap-6 items-start">
+        {
+          panels.map((p) => (
+            <CaseStudyFigure src={img(p.name)} alt={p.alt} caption={p.caption} />
+          ))
+        }
+      </div>
+    </CaseStudySection>
+
+    <CaseStudySection id="result" label="06" title="The result">
+      <p>
+        The redesign brought VR mode in line with the rest of Enscape without changing how it works. Users who already
+        present in VR find every feature where it was before, while the labelled tab bar and the shared panel layout make
+        it easier for new users to find their way.
+      </p>
+      <div class="pt-4">
+        <a
+          href="/#projects"
+          class="inline-flex items-center gap-2 px-4 py-2 bg-gray-900 hover:bg-gray-700 text-white rounded-lg text-sm font-medium transition-colors"
+        >
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+          </svg>
+          Back to projects
+        </a>
+      </div>
+    </CaseStudySection>
+  </main>
+</BaseLayout>

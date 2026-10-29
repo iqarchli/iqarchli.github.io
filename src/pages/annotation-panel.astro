@@ -10,7 +10,7 @@ const tags = ["Interaction design", "iPadOS", "Offline-first", "Design system"];
 
 // TODO: add role, team and timeline once confirmed; the source PDF doesn't state them.
 const facts = [
-  { label: "Product", value: "Enscape iPad app" },
+  { label: "Product", value: "3D renderer, iPad app" },
   { label: "Feature", value: "Scene comments (V1)" },
   { label: "Syncs with", value: "Chaos Cloud" },
   { label: "Design system", value: "Eris" },
@@ -70,8 +70,8 @@ const evolution = [
 ---
 
 <BaseLayout
-  title={`Comments in the Enscape iPad App - ${siteConfig.name}`}
-  description="UX case study: spatial comments for reviewing Enscape scenes in the iPad app."
+  title={`Comments in a 3D Renderer iPad App - ${siteConfig.name}`}
+  description="UX case study: spatial comments for reviewing 3D scenes in a renderer's iPad app."
 >
   <main class="pt-8 md:pt-20">
     <!-- Intro -->
@@ -86,12 +86,12 @@ const evolution = [
         Back to projects
       </a>
 
-      <div class="mt-8 max-w-4xl">
+      <div class="mt-8">
         <span class="text-sm font-mono" style={{ color: siteConfig.accentColor }}>
-          Case study · Enscape iPad app
+          Case study · 3D renderer iPad app
         </span>
         <h1 class="mt-2 text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-gray-900">
-          Comments in the Enscape iPad App
+          Comments in a 3D Renderer iPad App
         </h1>
         <div
           class="w-[75px] h-[5px] mt-3 rounded-full"
@@ -127,23 +127,23 @@ const evolution = [
       <div class="mt-10">
         <CaseStudyFigure
           src={img("overview")}
-          alt="Enscape on iPad with the comments panel open beside a rendered terrace scene, numbered pins placed in the 3D view"
-          caption="The comments panel in a scene. Each comment has a numbered pin, and tapping a row moves the camera to it."
+          alt="The 3D renderer on iPad with the comments panel open beside a rendered terrace scene, comment pins placed in the 3D view"
+          caption="The comments panel in a scene. Each comment has a pin, and tapping a row moves the camera to it."
         />
       </div>
     </section>
 
     <CaseStudySection id="overview" label="01" title="The problem">
       <p>
-        Enscape scenes are reviewed by architects, their teams and their clients, often on site with a tablet. A comment
-        is only useful if it's clear what it refers to. That's why comments in Enscape are spatial: each one is a pin that
+        3D scenes are reviewed by architects, their teams and their clients, often on site with a tablet. A comment
+        is only useful if it's clear what it refers to. That's why comments in the app are spatial: each one is a pin that
         also saves the camera position, so anyone who opens it sees exactly the same view.
       </p>
       <p>
         The desktop plugin already had a comments panel, but in its first version users couldn't create new comments
-        there. On the iPad they can, because the app has everything that placing a pin needs: a viewport and a tap. Our
-        goal was to design the iPad panel for viewing, writing, replying to and resolving comments, for users who are not
-        always technical and who might lose their connection in the middle of a sentence.
+        there. On the iPad they can, because the app has everything that placing a pin needs: a viewport and a tap. I
+        designed the iPad panel for viewing, writing, replying to and resolving comments, for users who are not always
+        technical and who might lose their connection in the middle of a sentence.
       </p>
       <div class="grid sm:grid-cols-3 gap-4">
         {
@@ -163,7 +163,7 @@ const evolution = [
 
     <CaseStudySection id="principles" label="02" title="Principles">
       <p>
-        Throughout the design process, a few principles guided our decisions and shaped most of the screens.
+        Throughout the design process, a few principles guided my decisions and shaped most of the screens.
       </p>
       <div class="grid sm:grid-cols-2 gap-4">
         {
@@ -182,16 +182,11 @@ const evolution = [
 
     <CaseStudySection id="browsing" label="03" title="Comments in the scene">
       <p>
-        The panel is based on the existing Viewpoints panel in Enscape. It opens from the toolbar in the same way, has the
+        The panel is based on the existing Viewpoints panel in the app. It opens from the toolbar in the same way, has the
         same width and search, and tapping a row moves the camera just like tapping a viewpoint. Because the two panels
         work alike, users already know how to use it. On top of that, comments show the author, a status and a way to
         create new comments.
       </p>
-      <CaseStudyFigure
-        src={img("thread-popover")}
-        alt="A comment thread shown as a popover next to its pin in the scene, with replies and a reply field"
-        caption="An early version, where tapping a pin opens the thread next to it. A bottom sheet would have covered the part of the scene being discussed."
-      />
       <h3 class="text-xl sm:text-2xl font-bold text-gray-900">Keeping the scene calm</h3>
       <p>
         When nothing is selected, open pins are grey and resolved pins are green with a check, so no pin stands out. When
@@ -200,9 +195,9 @@ const evolution = [
         when zooming.
       </p>
       <CaseStudyFigure
-        src={img("pins")}
-        alt="Three versions of the same scene: pins at rest, an open pin selected in blue, and a resolved pin selected in green"
-        caption="No pin selected, an open pin selected, and a resolved pin selected. A resolved pin stays green when selected."
+        src={img("pins-scene")}
+        alt="Comment pins placed in the scene: open pins in grey and resolved pins in green, next to the Comments panel"
+        caption="Pins in the scene: open comments are grey and resolved ones are green, so no pin stands out."
       />
     </CaseStudySection>
 
@@ -212,23 +207,18 @@ const evolution = [
         viewport gets a coloured frame, and a crosshair follows the user's finger. A short note at the bottom explains
         something users wouldn't expect: the pin saves the whole camera position, not just a point in the scene.
       </p>
-      <CaseStudyFigure
-        src={img("place-pin")}
-        alt="Placement mode: a blue bar reads 'Tap where you'd like to comment' and a crosshair sits over the scene"
-        caption="Placement mode. The note at the bottom tells users that the pin saves the current camera view."
-      />
       <p>
-        Later, we removed this extra step. When the comments panel is open, a single tap in the scene places a draft pin
+        Later, I removed this extra step. When the comments panel is open, a single tap in the scene places a draft pin
         and opens the comment field with the keyboard. Dragging still moves the camera, and tapping an existing pin still
         opens its thread, so users don't place pins by accident while navigating.
       </p>
       <CaseStudyFigure
         src={img("tap-to-place")}
-        alt="The scene locked while writing, with a draft pin and a New comment composer showing 'Pinned here · camera and v7 saved'"
-        caption="Tap to place. The comment field opens next to the pin, shows what was saved and lets users move the pin before posting."
+        alt="A New comment field open next to a freshly placed pin, with the iPad keyboard up"
+        caption="Writing a new comment. The comment field opens next to the pin with the keyboard, and the toolbar shows that a new comment is being written."
       />
       <p>
-        However, a tap in the scene is not something users can see or discover on their own. That's why we kept an Add
+        However, a tap in the scene is not something users can see or discover on their own. That's why I kept an Add
         comment button at the bottom of the panel. It starts the same placement step, so the button and the tap lead to
         the same flow.
       </p>
@@ -236,37 +226,32 @@ const evolution = [
 
     <CaseStudySection id="actions" label="05" title="Resolving and row actions">
       <p>
-        Resolving is the action users repeat most often, so we made it a swipe. Swiping a row to the left first shows the
+        Resolving is the action users repeat most often, so I made it a swipe. Swiping a row to the left first shows the
         green Resolve action without applying it. The comment is only resolved when the user swipes all the way to the
         edge of the panel, and an Undo message stays visible for 5 seconds afterwards. On a resolved comment, the same
         swipe reopens it, shown in grey instead of green.
       </p>
       <CaseStudyFigure
-        src={img("swipe")}
-        alt="Swipe-to-resolve and swipe-to-reopen, each shown at the middle state, past the edge, and with an Undo toast"
-        caption="The same swipe resolves an open comment and reopens a resolved one."
+        src={img("resolved-toast")}
+        alt="The Comments panel right after a comment was resolved, with a Comment resolved message and an Undo button next to the panel"
+        caption="Right after a swipe, the comment leaves the Open list and a Comment resolved message with Undo stays for 5 seconds."
       />
       <p>
-        We also considered placing both the Resolve and ⋯ buttons inside the swipe area to save space. We decided against
+        I also considered placing both the Resolve and ⋯ buttons inside the swipe area to save space. I decided against
         it: users would have to swipe before opening a menu, actions like Edit and Delete would be hidden behind a gesture,
         and the swipe would need to travel further. Keeping the ⋯ button on the row only costs 24px.
       </p>
-      <CaseStudyFigure
-        src={img("tray-before")}
-        alt="A comment row swiped open revealing two tray buttons: a green check and a grey ⋯"
-        caption="The option we didn't choose: two actions inside the swipe area."
-      />
       <div class="grid sm:grid-cols-2 gap-6 items-start">
         <CaseStudyFigure
           src={img("row-actions")}
-          alt="A comment row at rest, with its ⋯ menu open, and swiped open with a single green resolve action; below, the menu items"
-          caption="The chosen option: the ⋯ button on the row, long-press as a shortcut, and a swipe that only resolves."
+          alt="The ⋯ menus for a comment and a reply: Resolve, Edit, Share and Delete for the owner, Reopen on resolved comments, and Share only for viewers"
+          caption="The ⋯ menu changes with the user's rights: owners can edit and delete, and viewers only see Share."
         />
         <div class="space-y-4">
           <h3 class="text-xl sm:text-2xl font-bold text-gray-900">Hidden rather than disabled</h3>
           <p>
             Users can only edit and delete their own comments, and only users with editor rights in Chaos Cloud can resolve
-            them. Instead of showing these actions greyed out, we hide them when they're not available. For users without
+            them. Instead of showing these actions greyed out, I hide them when they're not available. For users without
             resolve rights, the swipe doesn't react at all.
           </p>
         </div>
@@ -286,8 +271,8 @@ const evolution = [
       </ul>
       <CaseStudyFigure
         src={img("states")}
-        alt="A matrix of nine comment rows covering open, resolved and resolved-with-replies, each as unread, read and active, plus two rows showing sync states"
-        caption="All combinations of status, read state and selection, and the user's own comments while they sync."
+        alt="Four comments panels side by side: the Open list with a selected comment and unread dots, an open thread, a resolved thread, and the Resolved list with green pins"
+        caption="The same states in the panel: a selected comment and unread dots in the Open list, an open thread in blue, a resolved thread in green, and the Resolved list."
       />
       <p>
         A comment is marked as read when the user opens it, not when they scroll past it. The unread badge only counts open
@@ -299,23 +284,24 @@ const evolution = [
     <CaseStudySection id="offline" label="07" title="Working offline">
       <p>
         When users lose their connection on site while writing, they should never have to wonder whether their comment was
-        lost. That's why we never use the word “draft”. The comment is saved on the iPad as soon as it's written, the Send
+        lost. That's why I never used the word “draft”. The comment is saved on the iPad as soon as it's written, the Send
         button works as usual, and the comment appears in the list right away with its pin number.
       </p>
       <CaseStudyFigure
         src={img("offline")}
-        alt="The comments panel offline: two comments marked 'Waiting for connection' with amber rails and amber pins, and a footer reading 'Offline — 2 comments waiting'"
-        caption="Offline with two comments waiting. A single bar at the bottom of the panel shows the connection status, and each waiting comment gets an amber line and a short status."
+        alt="The comments panel with two new comments marked 'Syncing', their pins in the scene, and a footer reading 'Syncing 2 comments…'"
+        caption="Two new comments syncing to Chaos Cloud. A single bar at the bottom of the panel shows the sync status, and each comment in the list gets a short status of its own."
       />
       <p>
-        We kept the colours simple: amber while waiting, blue while syncing, and no marker once it's done. When the
+        I kept the colours simple: amber while waiting, blue while syncing, and no marker once it's done. When the
         connection comes back, the amber elements turn blue in place, so users can follow the same comments instead of
         seeing them disappear and reappear.
       </p>
       <CaseStudyFigure
         src={img("sync-bar")}
-        alt="The footer bar in three states: Offline, Back online with a Sync now button, and Syncing"
-        caption="The status bar when the connection comes back. Syncing starts automatically after a few seconds, and Sync now starts it right away."
+        size="medium"
+        alt="The footer bar in four states: comments waiting to sync, syncing, could not be synced, and synced to Chaos Cloud"
+        caption="The status bar in each sync state: waiting, syncing, failed and synced."
       />
       <p>
         When the user needs to take action, for example because their session has expired, the panel keeps the same amber
@@ -325,7 +311,8 @@ const evolution = [
       </p>
       <CaseStudyFigure
         src={img("notifications")}
-        alt="Three iPad lock-screen notifications: sign in to sync, comments still waiting to sync, and a comment that couldn't be synced"
+        size="narrow"
+        alt="A lock-screen notification reading '1 comment couldn't be synced', with the name of the scene"
         caption="Notifications are only sent when the app is closed and the problem won't solve itself."
       />
     </CaseStudySection>
@@ -338,8 +325,9 @@ const evolution = [
       </p>
       <CaseStudyFigure
         src={img("filter")}
-        alt="Three panel states: no filters, the filter popover open with Unread only and a list of authors, and two filters applied as chips"
-        caption="No filters, the filter menu open, and two filters applied."
+        size="narrow"
+        alt="The filter menu with Mentions me and a searchable list of authors, and below it the list of people suggested after typing @"
+        caption="The filter menu, with Mentions me and a searchable list of authors, and the list of people suggested for @mentions."
       />
       <p>
         Search looks through comments, replies and author names. Each result is still one comment, since each comment has
@@ -347,18 +335,19 @@ const evolution = [
       </p>
       <CaseStudyFigure
         src={img("search")}
-        alt="Five search states: matches in comments and replies, no match in this tab, no match anywhere, switching to Resolved, and search with filters"
-        caption="The first version of search, limited to the current tab with a link to results in the other tab."
+        alt="iPad with a search in the comments panel: five matches, with the matching words highlighted in comments and replies"
+        caption="Search results in the panel. Matching words are highlighted, and a match in a reply is shown under its comment."
       />
       <CaseStudyFigure
         src={img("search-sheet")}
-        alt="Six states of a later search design: all comments, search focused, no match, filtered with no match, matches, and a result opened"
-        caption="The later version, where the tabs are hidden while searching and the pin colour shows whether each result is open or resolved."
+        size="medium"
+        alt="Three panel states while searching: no match for the query, no match with a filter applied, and five matches"
+        caption="The tabs are hidden while searching. The panel shows a clear message when nothing matches, with or without filters."
       />
       <div class="grid sm:grid-cols-2 gap-6 items-start">
         <CaseStudyFigure
           src={img("reply-mode")}
-          alt="Reply mode: the panel shows one thread with a back link to Comments, the replies, and a composer at the bottom"
+          alt="Reply mode: the panel shows one thread with a back link to Comments and the replies below the comment"
           caption="In reply mode, the panel shows a single thread. The back link returns users to the same tab, filters and scroll position."
         />
         <div class="space-y-4">
@@ -371,11 +360,23 @@ const evolution = [
           </ul>
         </div>
       </div>
-      <CaseStudyFigure
-        src={img("mention")}
-        alt="iPad with the keyboard up and a people list above the reply field after typing @"
-        caption="Mentioning someone with the keyboard open. The panel moves above the keyboard and the list of people opens upwards."
-      />
+      <div class="grid grid-cols-3 gap-3 sm:gap-6 items-start max-w-3xl mx-auto">
+        <CaseStudyFigure
+          src={img("mention-1")}
+          alt="Writing a reply with the keyboard up, the text reads 'Hey @Seb'"
+          caption="1. Typing @ and the start of a name."
+        />
+        <CaseStudyFigure
+          src={img("mention-2")}
+          alt="The reply now reads 'Hey @Sebastian Redinger, please take a look at the following thread', with the name in blue"
+          caption="2. The mention is inserted and shown in blue."
+        />
+        <CaseStudyFigure
+          src={img("mention-3")}
+          alt="The posted comment in the list, with the mention of Sebastian Redinger shown in blue"
+          caption="3. The posted comment keeps the mention highlighted."
+        />
+      </div>
     </CaseStudySection>
 
     <CaseStudySection id="evolution" label="09" title="How it evolved">

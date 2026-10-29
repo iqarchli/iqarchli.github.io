@@ -1,0 +1,319 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import CaseStudySection from "../components/CaseStudySection.astro";
+import CaseStudyFigure from "../components/CaseStudyFigure.astro";
+import { siteConfig } from "../config";
+
+const img = (name: string) => `/case-studies/cloud-collaboration/${name}.jpg`;
+
+const tags = ["Web", "Usability testing", "Prototyping", "Collaboration"];
+
+const facts = [
+  { label: "Product", value: "Chaos Cloud" },
+  { label: "Platform", value: "Web browser" },
+  { label: "Research", value: "Usability test, 5 participants" },
+  { label: "Timeline", value: "2 sprints · 4 weeks" },
+];
+
+const features = [
+  { title: "Share with anyone", body: "Users can invite others to view or edit their scenes with a simple invitation." },
+  { title: "Easy project management", body: "Users can organize images and scenes in projects and folders." },
+  { title: "Keep track of feedback", body: "All feedback is collected in one place, next to the scene it belongs to." },
+  { title: "Access from anywhere", body: "Shared projects open in a web browser, so clients don't need to install anything." },
+];
+
+const tasks = [
+  { title: "Create a presentation", body: "Upload the right files and materials to set up a new presentation." },
+  { title: "Add context", body: "Add hotspots with text, audio and images to give each scene more context." },
+  { title: "Share it", body: "Share the presentation with clients and choose who can access it." },
+];
+
+const participants = [
+  "Architect, Interior Architect",
+  "Architect, 3D Artist",
+  "Architect, 3D Artist",
+  "Architect & Team lead",
+  "Interior Designer & Team lead",
+];
+
+const positive = [
+  "Participants found the UI intuitive and the flow easy to follow.",
+  "The tool offers a good way to collect early feedback from clients asynchronously, without explaining everything on a phone call.",
+  "It brings together project progress that standard documents such as PDFs can't easily show.",
+  "Uploading materials and designs to a presentation was effortless.",
+  "The comments for clients were seen as especially useful.",
+];
+
+const misaligned = [
+  "Some participants didn't understand the term “hotspot”.",
+  "The share icon wasn't recognized by everyone.",
+  "Adding a hotspot was less intuitive than expected for some participants.",
+  "Participants asked for options to change the font size, colours and sound volume.",
+  "Some participants were worried that their clients would need training before using the tool.",
+];
+
+const nextSteps = [
+  {
+    title: "Use plain words",
+    body: "Replace “hotspot” with a term that describes what users add to the scene, such as a note, an audio clip or a link to another scene.",
+  },
+  {
+    title: "Label the share action",
+    body: "Show the word Share next to the icon, since it is the step that brings clients into the presentation.",
+  },
+  {
+    title: "Guide the first hotspot",
+    body: "Explain how to place and move a hotspot the first time a user adds one, instead of relying on the toolbar icons alone.",
+  },
+  {
+    title: "Keep the client view simple",
+    body: "Clients open the presentation from a link, often for the first time. Their view should work without training, with only the scene, the hotspots and the comments.",
+  },
+];
+---
+
+<BaseLayout
+  title={`Collaborating on 3D projects in the Cloud - ${siteConfig.name}`}
+  description="UX case study: sharing 3D scenes with clients and collecting their feedback in Chaos Cloud."
+>
+  <main class="pt-8 md:pt-20">
+    <!-- Intro -->
+    <section class="px-8 sm:px-12 md:px-16 lg:px-24 pt-8 pb-12 sm:pb-16">
+      <a
+        href="/#projects"
+        class="inline-flex items-center gap-2 text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors"
+      >
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+        </svg>
+        Back to projects
+      </a>
+
+      <div class="mt-8">
+        <span class="text-sm font-mono" style={{ color: siteConfig.accentColor }}>
+          Case study · Chaos Cloud
+        </span>
+        <h1 class="mt-2 text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-gray-900">
+          Collaborating on 3D projects in the Cloud
+        </h1>
+        <div
+          class="w-[75px] h-[5px] mt-3 rounded-full"
+          style={`background-color: ${siteConfig.accentColor}`}
+        >
+        </div>
+        <p class="mt-6 text-lg sm:text-xl text-gray-600 leading-relaxed">
+          Cloud Collaboration lets users share 3D scenes with their teams and clients. With a simple invitation,
+          collaborators can walk through the scenes and leave feedback, which speeds up reviews and helps users finish
+          their projects faster.
+        </p>
+        <div class="flex flex-wrap gap-1.5 sm:gap-2 pt-6">
+          {
+            tags.map((tag) => (
+              <span class="px-2.5 sm:px-3 py-1 sm:py-1.5 bg-gray-900 text-white rounded-md sm:rounded-lg text-xs sm:text-sm font-medium">
+                {tag}
+              </span>
+            ))
+          }
+        </div>
+      </div>
+
+      <dl class="mt-10 grid grid-cols-2 md:grid-cols-4 gap-4">
+        {
+          facts.map((fact) => (
+            <div class="p-4 sm:p-5 bg-gray-50 rounded-xl border border-gray-200">
+              <dt class="text-xs sm:text-sm text-gray-500">{fact.label}</dt>
+              <dd class="mt-1 text-sm sm:text-base font-semibold text-gray-900">{fact.value}</dd>
+            </div>
+          ))
+        }
+      </dl>
+
+      <div class="mt-10">
+        <CaseStudyFigure
+          src={img("overview")}
+          alt="A presentation open in the browser: a living room scene with text, audio and image hotspots, and the Annotations panel with a New Annotation field"
+          caption="A presentation in Cloud Collaboration. Hotspots add text, audio and images to the scene, and the thumbnails at the bottom switch between scenes."
+        />
+      </div>
+    </section>
+
+    <CaseStudySection id="problem" label="01" title="The problem">
+      <p>
+        Architects review their designs with their teams and clients many times before a project is finished. These
+        reviews often happen through PDFs, screenshots and phone calls, so the feedback ends up spread across emails and
+        notes, and clients only see the design through someone else's explanation.
+      </p>
+      <p>
+        Cloud Collaboration brings these reviews into one place. Users upload their scenes to Chaos Cloud, add context to
+        them, and invite clients to explore the scenes and comment on them in the browser. I designed the flow for
+        creating, enriching and sharing these presentations, and tested it with architects and designers.
+      </p>
+      <div class="grid sm:grid-cols-2 gap-4">
+        {
+          features.map((f, i) => (
+            <div class="p-4 sm:p-6 bg-gray-50 rounded-xl sm:rounded-2xl border border-gray-200">
+              <span class="text-sm font-mono" style={{ color: siteConfig.accentColor }}>
+                0{i + 1}
+              </span>
+              <h3 class="mt-1 text-lg sm:text-xl font-bold text-gray-900">{f.title}</h3>
+              <p class="mt-2 text-sm sm:text-base">{f.body}</p>
+            </div>
+          ))
+        }
+      </div>
+    </CaseStudySection>
+
+    <CaseStudySection id="users" label="02" title="Who it's for">
+      <p>
+        The main users are architects and interior designers who present their work to clients. Their clients are not
+        always technical, and they usually open a presentation from a link without any introduction. The user story I
+        designed for was:
+      </p>
+      <blockquote
+        class="p-4 sm:p-6 bg-gray-50 rounded-xl sm:rounded-2xl border-l-4 text-gray-900 text-lg sm:text-xl leading-relaxed"
+        style={`border-color: ${siteConfig.accentColor}`}
+      >
+        “As an architect, I would like to let my clients explore my designs and progress with virtual tours, and use
+        highlights to guide them to the focal points of my work.”
+      </blockquote>
+    </CaseStudySection>
+
+    <CaseStudySection id="create" label="03" title="Creating a presentation">
+      <p>
+        Presentations live next to the user's projects, in their own My presentations section. Creating one only asks for
+        two things: a title and the scenes. Users can drag files into the upload area or pick them from their computer,
+        and each file shows its size and can be removed before the presentation is created. The supported formats and the
+        size limit are listed below the upload area, so users don't find out about them through an error.
+      </p>
+      <CaseStudyFigure
+        src={img("create")}
+        alt="The Create presentation dialog with a title field, an upload area and four uploaded scenes, above the My presentations list"
+        caption="Creating a presentation. Users give it a title and upload their scenes in one step."
+      />
+    </CaseStudySection>
+
+    <CaseStudySection id="context" label="04" title="Adding context to scenes">
+      <p>
+        A rendered scene shows what a space looks like, but not why it was designed that way. To guide clients to the
+        important parts of a design, users can place hotspots in the scene. The toolbar on the left has one tool for each
+        type: text, audio and images. Each type opens its own panel with a list of the hotspots in the current scene and a
+        button to add a new one.
+      </p>
+      <CaseStudyFigure
+        src={img("image-hotspot")}
+        alt="The Images panel with an uploaded image, and the image hotspot selected in the scene with arrows to move it"
+        caption="An image hotspot. The selected hotspot shows arrows so users can move it, and the panel lists the images in the scene."
+      />
+      <p>
+        Hotspots can also link scenes together. A link hotspot shows a preview of the scene it leads to, so clients can
+        move through a project the same way they would walk through the building, instead of only using the thumbnails at
+        the bottom.
+      </p>
+      <CaseStudyFigure
+        src={img("scene-link")}
+        alt="A hotspot in the living room with a preview card of the Playroom scene, and a task card from the usability test in the corner"
+        caption="A hotspot that links to the Playroom scene. The card in the corner is one of the tasks from the usability test."
+      />
+    </CaseStudySection>
+
+    <CaseStudySection id="share" label="05" title="Sharing with clients">
+      <p>
+        Sharing works the way users already know from other cloud tools. They can invite people by email and choose
+        whether they can view or edit the presentation, or copy a link. The link access setting decides whether only
+        invited members or anyone with the link can open it, and the list of members always shows who already has access.
+      </p>
+      <CaseStudyFigure
+        src={img("share")}
+        alt="The Share presentation dialog with an email field, a Can view role, the members list, link access set to Invited members only, and a Copy link button"
+        caption="Sharing a presentation. A message confirms that the link was copied, so users know it's ready to send."
+      />
+    </CaseStudySection>
+
+    <CaseStudySection id="feedback" label="06" title="Collecting feedback">
+      <p>
+        Clients leave their feedback directly in the presentation. Each comment is numbered and pinned to the scene it
+        refers to, and comments can be replied to and resolved, so the feedback for a project stays in one place instead
+        of in emails and notes. The panel has two tabs: comments on the current scene, and comments on the whole folder.
+      </p>
+      <CaseStudyFigure
+        src={img("comments")}
+        alt="The Comments panel next to the Playroom scene, with File and Folder tabs and two numbered comments, one with replies"
+        caption="The Comments panel. Each comment has a number that matches its pin in the scene, and can be resolved once it's handled."
+      />
+    </CaseStudySection>
+
+    <CaseStudySection id="testing" label="07" title="Testing the prototype">
+      <p>
+        I tested a clickable prototype of the whole flow with five participants, all of whom present 3D work to clients
+        in their daily work. Each participant worked through three tasks, guided by short task cards in the prototype, and
+        described their experience as they went.
+      </p>
+      <div class="grid sm:grid-cols-3 gap-4">
+        {
+          tasks.map((t, i) => (
+            <div class="p-4 sm:p-5 bg-gray-50 rounded-xl border border-gray-200">
+              <span class="text-sm font-mono" style={{ color: siteConfig.accentColor }}>
+                Task {i + 1}
+              </span>
+              <p class="mt-1 font-semibold text-gray-900">{t.title}</p>
+              <p class="mt-1 text-sm sm:text-base">{t.body}</p>
+            </div>
+          ))
+        }
+      </div>
+      <h3 class="text-xl sm:text-2xl font-bold text-gray-900">Participants</h3>
+      <ul class="grid sm:grid-cols-2 gap-x-6 gap-y-2 list-disc pl-5">
+        {participants.map((p) => <li>{p}</li>)}
+      </ul>
+    </CaseStudySection>
+
+    <CaseStudySection id="findings" label="08" title="Findings">
+      <p>
+        Overall, participants understood the idea right away and saw how it would replace their current way of sharing
+        progress. The problems they ran into were mostly about wording and discoverability.
+      </p>
+      <div class="grid md:grid-cols-2 gap-4">
+        <div class="p-4 sm:p-6 bg-gray-50 rounded-xl sm:rounded-2xl border border-gray-200">
+          <h3 class="text-lg sm:text-xl font-bold text-gray-900">What worked</h3>
+          <ul class="mt-3 space-y-2 list-disc pl-5 text-sm sm:text-base">
+            {positive.map((item) => <li>{item}</li>)}
+          </ul>
+        </div>
+        <div class="p-4 sm:p-6 bg-gray-50 rounded-xl sm:rounded-2xl border border-gray-200">
+          <h3 class="text-lg sm:text-xl font-bold text-gray-900">What didn't</h3>
+          <ul class="mt-3 space-y-2 list-disc pl-5 text-sm sm:text-base">
+            {misaligned.map((item) => <li>{item}</li>)}
+          </ul>
+        </div>
+      </div>
+    </CaseStudySection>
+
+    <CaseStudySection id="next" label="09" title="Next steps">
+      <p>Based on the findings, these are the changes I recommended for the next version:</p>
+      <div class="grid sm:grid-cols-2 gap-4">
+        {
+          nextSteps.map((s, i) => (
+            <div class="p-4 sm:p-6 bg-gray-50 rounded-xl sm:rounded-2xl border border-gray-200">
+              <span class="text-sm font-mono" style={{ color: siteConfig.accentColor }}>
+                0{i + 1}
+              </span>
+              <h3 class="mt-1 text-lg sm:text-xl font-bold text-gray-900">{s.title}</h3>
+              <p class="mt-2 text-sm sm:text-base">{s.body}</p>
+            </div>
+          ))
+        }
+      </div>
+      <div class="pt-4">
+        <a
+          href="/#projects"
+          class="inline-flex items-center gap-2 px-4 py-2 bg-gray-900 hover:bg-gray-700 text-white rounded-lg text-sm font-medium transition-colors"
+        >
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+          </svg>
+          Back to projects
+        </a>
+      </div>
+    </CaseStudySection>
+  </main>
+</BaseLayout>
