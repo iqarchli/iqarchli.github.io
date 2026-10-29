@@ -17,11 +17,11 @@ export const siteConfig = {
   skills: ["Figma", "Adobe XD", "User Research", "HTML", "Javascript", "React", "Node.js"],
   projects: [
     {
-      name: "Comments in a 3D Renderer iPad App",
+      name: "Comments in a 3D Renderer App for iOS",
       description:
         "The annotation panel lets users review 3D scenes on site and leave comments directly in the scene. Comments are pinned to the view they refer to, synced through Chaos Cloud, and keep working even when the connection drops.",
       link: "/annotation-panel",
-      skills: ["Interaction design", "iPadOS", "Offline-first"],
+      skills: ["Interaction design", "iOS", "Offline-first"],
       image: "/case-studies/annotation-panel/preview.gif",
     },
     {

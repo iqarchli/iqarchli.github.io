@@ -6,11 +6,11 @@ import { siteConfig } from "../config";
 
 const img = (name: string) => `/case-studies/annotation-panel/${name}.jpg`;
 
-const tags = ["Interaction design", "iPadOS", "Offline-first", "Design system"];
+const tags = ["Interaction design", "iOS", "Offline-first", "Design system"];
 
 // TODO: add role, team and timeline once confirmed; the source PDF doesn't state them.
 const facts = [
-  { label: "Product", value: "3D renderer, iPad app" },
+  { label: "Product", value: "3D renderer, iOS app" },
   { label: "Feature", value: "Scene comments (V1)" },
   { label: "Syncs with", value: "Chaos Cloud" },
   { label: "Design system", value: "Eris" },
@@ -70,8 +70,8 @@ const evolution = [
 ---
 
 <BaseLayout
-  title={`Comments in a 3D Renderer iPad App - ${siteConfig.name}`}
-  description="UX case study: spatial comments for reviewing 3D scenes in a renderer's iPad app."
+  title={`Comments in a 3D Renderer App for iOS - ${siteConfig.name}`}
+  description="UX case study: spatial comments for reviewing 3D scenes in a renderer's iOS app."
 >
   <main class="pt-8 md:pt-20">
     <!-- Intro -->
@@ -88,10 +88,10 @@ const evolution = [
 
       <div class="mt-8">
         <span class="text-sm font-mono" style={{ color: siteConfig.accentColor }}>
-          Case study · 3D renderer iPad app
+          Case study · 3D renderer for iOS
         </span>
         <h1 class="mt-2 text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-gray-900">
-          Comments in a 3D Renderer iPad App
+          Comments in a 3D Renderer App for iOS
         </h1>
         <div
           class="w-[75px] h-[5px] mt-3 rounded-full"
@@ -380,7 +380,59 @@ const evolution = [
       </div>
     </CaseStudySection>
 
-    <CaseStudySection id="evolution" label="09" title="How it evolved">
+    <CaseStudySection id="iphone" label="09" title="On iPhone">
+      <p>
+        The same panel also works on iPhone. In portrait there is no room for a side panel, so the comments open as a sheet
+        from the bottom and the scene stays visible above it. Tapping a comment still moves the camera to its pin, and
+        users can keep looking around and moving in the visible part of the scene. One downward flick on the grip
+        collapses the sheet to a bar, and the joystick comes back.
+      </p>
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-6 items-start">
+        <CaseStudyFigure
+          src={img("iphone-sheet")}
+          alt="iPhone in portrait with the comments sheet open in the lower half and the scene with pins above it"
+          caption="The comments open as a sheet below the scene."
+        />
+        <CaseStudyFigure
+          src={img("iphone-collapsed")}
+          alt="The sheet collapsed to a bar with Comments, search and filter, the scene and joystick filling the screen"
+          caption="A flick on the grip collapses it to a bar."
+        />
+        <CaseStudyFigure
+          src={img("iphone-pin")}
+          alt="New comment mode with a blue pin placed in the scene and an empty comment field at the bottom"
+          caption="Tapping the scene places the pin."
+        />
+        <CaseStudyFigure
+          src={img("iphone-write")}
+          alt="Writing a new comment with the keyboard up, the pin still visible in the scene above"
+          caption="The field stays just above the keyboard."
+        />
+      </div>
+      <p>
+        In landscape, the panel moves to the side as on the iPad, and the toolbar folds into a single menu button so the
+        scene gets as much room as possible.
+      </p>
+      <div class="grid sm:grid-cols-3 gap-3 sm:gap-6 items-start">
+        <CaseStudyFigure
+          src={img("iphone-landscape-panel")}
+          alt="iPhone in landscape with the comments panel on the right and pins in the scene on the left"
+          caption="The comments panel next to the scene."
+        />
+        <CaseStudyFigure
+          src={img("iphone-landscape-pin")}
+          alt="Landscape new comment mode with a blue pin placed in the scene and the comment field along the bottom"
+          caption="Placing a pin in landscape."
+        />
+        <CaseStudyFigure
+          src={img("iphone-landscape-write")}
+          alt="Writing a comment in landscape with the keyboard covering the lower half of the screen"
+          caption="Writing with the keyboard up."
+        />
+      </div>
+    </CaseStudySection>
+
+    <CaseStudySection id="evolution" label="10" title="How it evolved">
       <p>
         Many decisions changed along the way. These are the changes that had the biggest impact on the design.
       </p>
@@ -407,7 +459,7 @@ const evolution = [
       </div>
     </CaseStudySection>
 
-    <CaseStudySection id="open-questions" label="10" title="Open questions">
+    <CaseStudySection id="open-questions" label="11" title="Open questions">
       <p>Some questions were left open, to be answered through testing or together with the developers:</p>
       <ul class="space-y-3 list-disc pl-5">
         <li>
