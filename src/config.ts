@@ -3,8 +3,8 @@ export const siteConfig = {
   title: "Senior UX Designer & web developer",
   description: "Portfolio website of Ismail Qarchli",
   accentColor: "#00BFA6",
-  resumeLink: "https://drive.google.com/file/d/1hNYgqSTT74ap0pL5hs-GFsbo3CWqESAr/preview",
-  resumeID: "1hNYgqSTT74ap0pL5hs-GFsbo3CWqESAr",
+  resumeLink: "https://drive.google.com/file/d/16cvt1TqjMRLMm6rJ9t5_J_gzv4GulUol/preview",
+  resumeID: "16cvt1TqjMRLMm6rJ9t5_J_gzv4GulUol",
   lastUpdated: "Mar 2026",
   social: {
     email: "ismail.qarchli@gmail.com",
