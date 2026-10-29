@@ -3,7 +3,7 @@ interface Props {
   src: string;
   alt: string;
   caption?: string;
-  size?: "narrow" | "medium";
+  size?: "narrow" | "medium" | "large";
 }
 
 const { src, alt, caption, size } = Astro.props;
@@ -11,6 +11,7 @@ const { src, alt, caption, size } = Astro.props;
 const sizeClass = {
   narrow: "max-w-[200px] sm:max-w-[240px] mx-auto",
   medium: "max-w-xl mx-auto",
+  large: "max-w-3xl mx-auto",
 };
 ---
 
