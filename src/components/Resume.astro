@@ -8,6 +8,11 @@ import MyDocument from 'public/UX_Qarchli_Resume.pdf'; // Your <Document> compon
 
 
 
+const lastUpdated2 = new Date().toLocaleDateString("en-US", {
+  month: "short",
+  year: "numeric",
+});
+
 ---
 <section id="resume" class="p-8 sm:p-12 md:p-16 lg:p-24">
     <div>
@@ -44,7 +49,7 @@ import MyDocument from 'public/UX_Qarchli_Resume.pdf'; // Your <Document> compon
                                 <section> Updated on
                                     <span class="text-base sm:text-lg"
                                     style={`color: ${siteConfig.accentColor}`}>
-                                        {siteConfig.lastUpdated}
+                                        {lastUpdated2}
 
                                     </span>
                                 </section>
