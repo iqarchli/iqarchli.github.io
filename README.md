@@ -42,15 +42,3 @@ Each project follows a structured UX process:
 5. **Iteration & Delivery** – Refining the final experience for production or MVP handoff
 
 ---
-
-## Running the site locally
-The site is built with [Astro](https://astro.build) and Tailwind CSS.
-
-```sh
-npm install
-npm run dev      # local dev server
-npm run build    # production build in dist/
-```
-
-Pushing to `main` deploys the site to GitHub Pages through the workflow in `.github/workflows/deploy.yml`.
-Site content (projects, experience, CV link) lives in `src/config.ts`, and each case study is a page in `src/pages/`.
